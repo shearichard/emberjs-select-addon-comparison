@@ -20,12 +20,19 @@
   <div class="form-group">
     <label class="control-label">Nationality</label>
     <div class="">
+      {{select-light 
+        value=myValue 
+        options=myOptions 
+        class="form-control"
+        change=(action "myAction")}}
+      {{!--
       {{  input type="text" 
           value=item.nationality
           class="form-control" 
           placeholder="The nationality of the Guest"
           focus-out=(action (mut nationalityError) true)
       }}
+      --}}
     </div>
     {{#if nationalityError}}
       <div class="text-danger">

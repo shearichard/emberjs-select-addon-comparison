@@ -3,7 +3,15 @@ import Component from '@ember/component';
 export default Component.extend({
   buttonLabel: 'Save',
 
+  myValue: 'turtle',
+  myOptions: ['turtle', 'tortoise'],
+
   actions:{
+
+    myAction(event){
+      console.log(event.target.value);
+    },
+
     buttonCancelClicked(theguest) {
       alert("Cancel has been clicked")
     },
