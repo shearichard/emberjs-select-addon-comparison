@@ -1,0 +1,17 @@
+<h2>Guest List</h2>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Nationality</th>
+    </tr>
+  </thead>
+  <tbody>
+  {{#each model as |guest|}}
+    <tr>
+      <th>{{guest.name}}</th>
+      <td>{{guest.nationality}}</td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
