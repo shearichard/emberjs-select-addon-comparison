@@ -7,10 +7,10 @@
           value=item.name
           class="form-control" 
           placeholder="The name of the Guest"
-          focus-out=(action (mut nameError) true)
+          focus-out=(action (mut this.errMsgDspCntrl.nameError) true)
       }}
     </div>
-    {{#if nameError}}
+    {{#if this.errMsgDspCntrl.nameError}}
       <div class="text-danger">
         {{v-get item 'name' 'message'}}
       </div>
@@ -34,7 +34,7 @@
       }}
       --}}
     </div>
-    {{#if nationalityError}}
+    {{#if this.errMsgDspCntrl.nationalityError}}
       <div class="text-danger">
         {{v-get item 'nationality' 'message'}}
       </div>
