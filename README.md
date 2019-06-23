@@ -4,7 +4,7 @@ A comparision of ember.js addons to provide and manage a SELECT element in your 
 
 ## Implemented
 
-* [ember-select-light](https://git-scm.com://www.emberobserver.com/addons/ember-select-light)
+* [ember-select-light](https://www.emberobserver.com/addons/ember-select-light)
 
 ## Yet To Be Implemented
 
