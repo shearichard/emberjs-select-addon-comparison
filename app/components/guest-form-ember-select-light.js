@@ -3,8 +3,12 @@ import Component from '@ember/component';
 export default Component.extend({
   buttonLabel: 'Save',
 
-  myValue: 'turtle',
-  myOptions: ['turtle', 'tortoise'],
+  myValue: null,
+  myNationalities: [
+    { value: 'UK', label: 'United Kingdom' },
+    { value: 'AU',     label: 'Australia' },
+    { value: 'NZ',     label: 'New Zealand' },
+  ],
 
 
   //Each of the error display areas have their
@@ -23,21 +27,20 @@ export default Component.extend({
 
   actions:{
 
-    myAction(event){
-      console.log(event.target.value);
+    nationalityChangeAction(event){
+      this.sendAction('changeNationalityHandler', event.target.value);
     },
 
     buttonCancelClicked(theguest) {
       alert("Cancel has been clicked")
     },
-    buttonClicked(theguest) {
-      alert(`guest-form-ember-select-light ${this.buttonLabel} button firing`);
 
+    buttonSaveClicked(theguest) {
       theguest.validate()
         .then(({ validations }) => {
           if(validations.get('isValid'))
           {
-            this.sendAction('action', theguest);
+            this.sendAction('updateRecordHandler', theguest);
           }
           else
           {

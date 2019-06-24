@@ -7,4 +7,15 @@ export default Route.extend({
       nationality: ""
     });
   },
+  actions: {
+    updateNationality(slctnValue) {
+      console.log("updateNationality firing");
+      this.controller.model.set('nationality' , slctnValue);
+    },
+    updateRecord() {
+      alert("Update is firing in new/route - V1");
+      this.transitionTo('guest.index');
+    },
+  }
+  
 });

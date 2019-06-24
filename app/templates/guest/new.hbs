@@ -1,3 +1,7 @@
 <h2>Guest : Add New</h2>
-{{guest-form-ember-select-light item=model}}
+{{guest-form-ember-select-light 
+  item=model
+  changeNationalityHandler="updateNationality"
+  updateRecordHandler="updateRecord" 
+}}
 {{outlet}}

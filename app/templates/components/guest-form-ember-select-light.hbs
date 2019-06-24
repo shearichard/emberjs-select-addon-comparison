@@ -21,18 +21,12 @@
     <label class="control-label">Nationality</label>
     <div class="">
       {{select-light 
-        value=myValue 
-        options=myOptions 
+        value=item.nationality 
+        options=myNationalities 
+        placeholder="Please select one"
         class="form-control"
-        change=(action "myAction")}}
-      {{!--
-      {{  input type="text" 
-          value=item.nationality
-          class="form-control" 
-          placeholder="The nationality of the Guest"
-          focus-out=(action (mut nationalityError) true)
+        change=(action "nationalityChangeAction")
       }}
-      --}}
     </div>
     {{#if this.errMsgDspCntrl.nationalityError}}
       <div class="text-danger">
@@ -43,7 +37,7 @@
   {{!-- Buttons --}}
   <div class="form-group">
     <div class="">
-      <button type="submit" class="btn btn-default" {{action "buttonClicked" item}}>{{buttonLabel}}</button>
+      <button type="submit" class="btn btn-default" {{action "buttonSaveClicked" item}}>{{buttonLabel}}</button>
       <button type="button" class="btn btn-default" {{action "buttonCancelClicked" item}} >Cancel</button>
     </div>
   </div>
