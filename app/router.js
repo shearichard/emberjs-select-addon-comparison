@@ -10,6 +10,7 @@ Router.map(function() {
   this.route('about');
   this.route('guest', function() {
     this.route('new');
+    this.route('new-using-ember-power-select');
   });
 });
 
