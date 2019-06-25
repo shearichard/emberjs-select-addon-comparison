@@ -34,6 +34,37 @@
       </div>
     {{/if}}
   </div>
+  {{!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
+  {{!-- Guest Nationality --}}
+  <div class="form-group">
+    <label class="control-label">Nationality (using power-select)</label>
+    <div class="">
+      {{!-- 
+      {{select-light 
+        value=item.nationality 
+        options=myNationalities 
+        placeholder="Please select one"
+        class="form-control"
+        change=(action "nationalityChangeAction")
+      }}
+      --}} 
+      {{#power-select
+        search=(action "searchRepo")
+        selected=selected
+        onchange=(action (mut selected))
+        as |repo|
+      }}
+        {{repo.full_name}}
+      {{/power-select}}
+
+    </div>
+    {{#if this.errMsgDspCntrl.nationalityError}}
+      <div class="text-danger">
+        {{v-get item 'nationality' 'message'}}
+      </div>
+    {{/if}}
+  </div>
+  {{!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
   {{!-- Buttons --}}
   <div class="form-group">
     <div class="">
@@ -42,5 +73,4 @@
     </div>
   </div>
 </div>
-{{yield}}
 {{yield}}
