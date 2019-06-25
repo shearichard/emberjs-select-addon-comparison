@@ -37,17 +37,8 @@
   {{!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
   {{!-- Guest Nationality --}}
   <div class="form-group">
-    <label class="control-label">Nationality (using power-select)</label>
+    <label class="control-label">Github Repos (using power-select)</label>
     <div class="">
-      {{!-- 
-      {{select-light 
-        value=item.nationality 
-        options=myNationalities 
-        placeholder="Please select one"
-        class="form-control"
-        change=(action "nationalityChangeAction")
-      }}
-      --}} 
       {{#power-select
         search=(action "searchRepo")
         selected=selected
@@ -55,6 +46,25 @@
         as |repo|
       }}
         {{repo.full_name}}
+      {{/power-select}}
+
+    </div>
+    {{#if this.errMsgDspCntrl.nationalityError}}
+      <div class="text-danger">
+        {{v-get item 'nationality' 'message'}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="form-group">
+    <label class="control-label">Countries (using power-select)</label>
+    <div class="">
+      {{#power-select
+        search=(action "searchCountries")
+        selected=selectedcountry
+        onchange=(action (mut selectedcountry))
+        as |countries|
+      }}
+        {{countries.name}}
       {{/power-select}}
 
     </div>

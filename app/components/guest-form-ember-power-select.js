@@ -27,6 +27,48 @@ export default Component.extend({
 
   actions:{
 
+    searchCountries(term) {
+      //Response to :
+      //
+      //https://restcountries.eu/rest/v2/name/z?fields=name;alpha2Code
+      //
+      //
+      //looks like this 
+      //  [ 
+      //    ... 
+      //    {"name":"New Zealand","alpha2Code":"NZ"}
+      //    ... 
+      //  ]
+      //
+      /*
+      let dbg = fetch(url)
+                  .then(
+                    (resp) => resp.json()
+                  ).then(
+                    alert("Can you do this ?");
+                    console.log(json);
+                    (json) => json
+                  );
+      */
+
+      let url = `https://restcountries.eu/rest/v2/name/${term}?fields=name;alpha2Code`
+      /*
+      let dbg = fetch(url)
+        .then(function(response) {
+          return response.json();
+        })
+        .then(function(myJson) {
+          console.log(JSON.stringify(myJson));
+        });
+      */        
+      let dbg = fetch(url)
+        .then(function(response) {
+          return response.json();
+        });
+      return dbg;        
+      //return fetch(url).then((resp) => resp.json()).then((json) => json);
+      //return null;
+    },
     searchRepo(term) {
       let url = `https://api.github.com/search/repositories?q=${term}`;
       return fetch(url).then((resp) => resp.json()).then((json) => json.items);
