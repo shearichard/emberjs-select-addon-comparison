@@ -32,7 +32,7 @@ export default Component.extend({
     },
 
     buttonCancelClicked(theguest) {
-      alert("Cancel has been clicked")
+      this.sendAction('cancelHandler');
     },
 
     buttonSaveClicked(theguest) {

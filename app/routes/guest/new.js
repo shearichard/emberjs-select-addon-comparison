@@ -16,6 +16,9 @@ export default Route.extend({
       alert("Update is firing in new/route - V1");
       this.transitionTo('guest.index');
     },
+    cancelAndExit() {
+      this.transitionTo('guest.index');
+    },
   }
   
 });

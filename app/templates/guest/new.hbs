@@ -1,7 +1,11 @@
-<h2>Guest : Add New</h2>
+<h2>Guest: Add New</h2>
+<div class="well well-sm">
+  Demonstration of 'ember-select-light'
+</div>
 {{guest-form-ember-select-light 
   item=model
   changeNationalityHandler="updateNationality"
   updateRecordHandler="updateRecord" 
+  cancelHandler="cancelAndExit"
 }}
 {{outlet}}
