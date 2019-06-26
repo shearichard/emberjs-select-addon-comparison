@@ -9,7 +9,7 @@ export default Route.extend({
   },
   actions: {
     updateNationality(slctnValue) {
-      console.log("updateNationality firing");
+      console.log("updateNationality in route new-using-ember-power-select firing");
       this.controller.model.set('nationality' , slctnValue);
     },
     updateRecord() {

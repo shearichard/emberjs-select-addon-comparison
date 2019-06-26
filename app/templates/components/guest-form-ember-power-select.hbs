@@ -16,57 +16,68 @@
       </div>
     {{/if}}
   </div>
-  {{!-- Guest Nationality --}}
-  <div class="form-group">
-    <label class="control-label">Nationality</label>
-    <div class="">
-      {{select-light 
-        value=item.nationality 
-        options=myNationalities 
-        placeholder="Please select one"
-        class="form-control"
-        change=(action "nationalityChangeAction")
-      }}
-    </div>
-    {{#if this.errMsgDspCntrl.nationalityError}}
-      <div class="text-danger">
-        {{v-get item 'nationality' 'message'}}
-      </div>
-    {{/if}}
-  </div>
   {{!-- ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++--}}
   {{!-- Guest Nationality --}}
-  <div class="form-group">
-    <label class="control-label">Github Repos (using power-select)</label>
-    <div class="">
-      {{#power-select
-        search=(action "searchRepo")
-        selected=selected
-        onchange=(action (mut selected))
-        as |repo|
-      }}
-        {{repo.full_name}}
-      {{/power-select}}
-
-    </div>
-    {{#if this.errMsgDspCntrl.nationalityError}}
-      <div class="text-danger">
-        {{v-get item 'nationality' 'message'}}
-      </div>
-    {{/if}}
-  </div>
   <div class="form-group">
     <label class="control-label">Countries (using power-select)</label>
     <div class="">
       {{#power-select
+        searchPlaceholder="Text to provide user info about what they can search on"
         search=(action "searchCountries")
-        selected=selectedcountry
-        onchange=(action (mut selectedcountry))
+        selected=item.nationality
+        onchange=(action "nationalityChangeAction")
         as |countries|
       }}
         {{countries.name}}
       {{/power-select}}
+      {{!--
+      OPTION ONE
+      ==========
 
+      onchange=(action (mut item.nationality))
+
+      This "works" in that the item selected is reflected in the 
+      dropdown after the selection. This doesn't "work" in the 
+      value placed in the underlying record is the entire structure
+      recevied from the server, something like this :
+
+      {'name':'France', alpha2Code:'FR'}
+
+      rather than just the two character alphacode which is what's 
+      desired.
+
+      To get around this I have tried amending the `selected` property
+      as follows :
+
+      selected=item.nationality.alpha2Code
+
+      but that stops the dropdown "remembering" what items has been 
+      selected .
+
+      --}}
+      {{!--
+      OPTION TWO
+      ==========
+
+      onchange=(action "nationalityChangeAction")
+
+      This "works" in that the value placed into the underlying
+      record is what you want, a two character country code,
+      but it doesn't "work" in that the selection isn't reflected
+      in the dropdown itself
+
+      --}}
+      {{!--
+      OPTION THREE 
+      ===========
+
+      onchange=(action (mut item.nationality) 'XXX')
+
+      This isn't all the informative but as a variation on OPTION ONE
+      this places 'XXX' into the underlying record but it doesn't 
+      "work" in that the selection isn't reflected in the dropdown itself
+
+      --}}
     </div>
     {{#if this.errMsgDspCntrl.nationalityError}}
       <div class="text-danger">

@@ -41,7 +41,7 @@ export default Component.extend({
       //  ]
       //
       /*
-      let dbg = fetch(url)
+      let cntSrchPromise = fetch(url)
                   .then(
                     (resp) => resp.json()
                   ).then(
@@ -53,7 +53,7 @@ export default Component.extend({
 
       let url = `https://restcountries.eu/rest/v2/name/${term}?fields=name;alpha2Code`
       /*
-      let dbg = fetch(url)
+      let cntSrchPromise = fetch(url)
         .then(function(response) {
           return response.json();
         })
@@ -61,22 +61,20 @@ export default Component.extend({
           console.log(JSON.stringify(myJson));
         });
       */        
-      let dbg = fetch(url)
+      let cntSrchPromise = fetch(url)
         .then(function(response) {
           return response.json();
         });
-      return dbg;        
-      //return fetch(url).then((resp) => resp.json()).then((json) => json);
-      //return null;
+      return cntSrchPromise;        
     },
     searchRepo(term) {
       let url = `https://api.github.com/search/repositories?q=${term}`;
       return fetch(url).then((resp) => resp.json()).then((json) => json.items);
     },
 
-    nationalityChangeAction(event){
-      //this.sendAction('changeNationalityHandler', event.target.value);
-      alert("nationalityChangeAction has fired")
+    nationalityChangeAction(slctn){
+      //this.set(this.myValue, slctn);
+      this.sendAction('changeNationalityHandler', slctn.alpha2Code);
     },
 
     buttonCancelClicked(theguest) {
