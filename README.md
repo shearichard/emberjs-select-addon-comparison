@@ -15,17 +15,19 @@ A comparision of ember.js addons to provide and manage a SELECT element in your 
 
 ## Scope
 
-The intention is to allow the user to add a `Guest` object through five different forms
-one for each of the add-ons to be covered. The `nationality` property of `Guest` will 
-be associated with the dropdown. The result of using the form will be an row in the Data-Store,
-no attempt is made to write to a backend beyond that. 
+The intention is to allow the user to add an instance of the  `Guest` model through five different forms, one for each of the add-ons to be covered. 
+
+The `nationality` property of `Guest` will be associated with the select element. 
+
+The result of using the form will be a row in the Data-Store, no attempt is made to write to a backend beyond that. 
 
 ### Filter/Search
 
-Where supported by the add-on the form will support a filter/search of the of the potential values for the
-`nationality` property. 
+Where supported by the add-on the form will, within the select element,  support a filter/search of the potential values for the `nationality` property. 
 
 ## Credits
+
+Credit is due to the authors of each of the five add-ons listed above.
 
 The starting point for the project is a fork of the ['YoEmber' project](https://yoember.com/).
 
