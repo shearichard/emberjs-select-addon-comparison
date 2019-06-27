@@ -1,4 +1,4 @@
-# ess 
+# Ember.js Select Add-on Comparison
 
 A comparision of ember.js addons to provide and manage a SELECT element in your templates
 
