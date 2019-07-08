@@ -34,16 +34,6 @@ export default Component.extend({
       //    ... 
       //  ]
       //
-      /*
-      let cntSrchPromise = fetch(url)
-                  .then(
-                    (resp) => resp.json()
-                  ).then(
-                    alert("Can you do this ?");
-                    console.log(json);
-                    (json) => json
-                  );
-      */
 
       let url = `https://restcountries.eu/rest/v2/name/${term}?fields=name;alpha2Code`
 
@@ -52,10 +42,6 @@ export default Component.extend({
           return response.json();
         });
       return cntSrchPromise;        
-    },
-    searchRepo(term) {
-      let url = `https://api.github.com/search/repositories?q=${term}`;
-      return fetch(url).then((resp) => resp.json()).then((json) => json.items);
     },
 
     nationalityChangeAction(slctn){
