@@ -13,7 +13,7 @@ export default Route.extend({
       this.controller.model.set('nationality' , slctnValue);
     },
     updateRecord() {
-      alert("Update is firing in new/route - V1");
+      console.log("Update is firing in new/route - V1");
       this.transitionTo('guest.index');
     },
     cancelAndExit() {
