@@ -3,14 +3,6 @@ import Component from '@ember/component';
 export default Component.extend({
   buttonLabel: 'Save',
 
-  myValue: null,
-  myNationalities: [
-    { value: 'UK', label: 'United Kingdom' },
-    { value: 'AU',     label: 'Australia' },
-    { value: 'NZ',     label: 'New Zealand' },
-  ],
-
-
   //Each of the error display areas have their
   //visibility controlled by a property in the 
   //errMsgDspCntrl object. Their values are
@@ -54,15 +46,7 @@ export default Component.extend({
       */
 
       let url = `https://restcountries.eu/rest/v2/name/${term}?fields=name;alpha2Code`
-      /*
-      let cntSrchPromise = fetch(url)
-        .then(function(response) {
-          return response.json();
-        })
-        .then(function(myJson) {
-          console.log(JSON.stringify(myJson));
-        });
-      */        
+
       let cntSrchPromise = fetch(url)
         .then(function(response) {
           return response.json();
@@ -75,7 +59,6 @@ export default Component.extend({
     },
 
     nationalityChangeAction(slctn){
-      //this.set(this.myValue, slctn);
       this.set('nationality', slctn);
       this.sendAction('changeNationalityHandler', slctn.alpha2Code);
     },
