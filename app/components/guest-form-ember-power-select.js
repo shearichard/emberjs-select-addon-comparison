@@ -25,6 +25,8 @@ export default Component.extend({
   //messages
   nameOfErrMsgDspCntrl : 'errMsgDspCntrl',
 
+  nationality: undefined,
+
   actions:{
 
     searchCountries(term) {
@@ -74,6 +76,7 @@ export default Component.extend({
 
     nationalityChangeAction(slctn){
       //this.set(this.myValue, slctn);
+      this.set('nationality', slctn);
       this.sendAction('changeNationalityHandler', slctn.alpha2Code);
     },
 

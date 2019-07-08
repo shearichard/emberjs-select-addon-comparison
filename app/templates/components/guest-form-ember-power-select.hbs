@@ -24,7 +24,7 @@
       {{#power-select
         searchPlaceholder="Text to provide user info about what they can search on"
         search=(action "searchCountries")
-        selected=item.nationality
+        selected=nationality
         onchange=(action "nationalityChangeAction")
         as |countries|
       }}
